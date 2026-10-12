@@ -13,4 +13,8 @@ body { margin: 0; background: #f7f4ed; color: #17191b; font-family: Arial, Helve
 .hero-shade { background: linear-gradient(90deg, rgba(15,17,18,.94) 0%, rgba(15,17,18,.78) 36%, rgba(15,17,18,.12) 75%); }
 .grid-lines { background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 48px 48px; }
 input, textarea, select { color: #17191b; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; } }
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+[data-reveal][data-visible="true"] { opacity: 1; transform: none; }
+.project-card { animation: project-in .38s ease both; }
+@keyframes project-in { from { opacity: 0; transform: translateY(10px) scale(.99); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; } [data-reveal] { opacity: 1; transform: none; } }
